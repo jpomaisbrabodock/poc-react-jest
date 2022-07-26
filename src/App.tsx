@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [companyName, setCompanyName] = useState<string>('')
-  const [companyList, setCompanyList] = useState(['Asgardu', 'Steam', 'Magazine luiza'])
+  const [companyList, setCompanyList] = useState<Array<string>>(['Asgardu', 'Steam', 'Magazine luiza'])
   
   function addCompany() {
     setCompanyList(state => [...state, companyName])
