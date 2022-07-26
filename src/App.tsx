@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [companyName, setCompanyName] = useState<string>('')
+  const [companyList, setCompanyList] = useState(['Asgardu', 'Steam', 'Magazine luiza'])
+  
+  function addCompany() {
+    setCompanyList(state => [...state, companyName])
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Empresas Cadastradas</h1>
+      <input type="text" placeholder='Nome da empresa' onChange={(e) => setCompanyName(e.target.value)}/>
+      <button onClick={addCompany}>Adicionar empresa</button>
+      {companyList.map(company => <li key={company}>{company}</li>)}
     </div>
   );
 }
